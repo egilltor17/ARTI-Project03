@@ -1,0 +1,44 @@
+// WALLS
+sens[0] = x_pos
+sens[1] = n - x_pos
+sens[2] = y_pos 
+sens[3] = n - y_pos
+
+for(int i = 0; i < n; i++) {
+    // BODY
+    if(set.contains(x_pos, i)) {
+        if(i < x_pos) 
+            sens[4] = x_pos - i
+        if(i > x_pos)
+            sens[5] = i -x_pos
+    }
+    if(set.contains((n, y_pos)) {
+        if(i < y_pos) 
+            sens[6] = y_pos - i
+        if(i > y_pos)
+            sens[7] = i - y_pos
+    }
+    // FOOD
+    if(food == point(x_pos, i)) {
+        if(i < x_pos) 
+            sens[8] = x_pos - i
+        if(i > x_pos)
+            sens[9] = i - x_pos
+    }
+    if(food == point(n, y_pos)) {
+        if(i < y_pos) 
+            sens[10] = y_pos - i
+        if(i > y_pos)
+            sens[11] = i - y_pos
+    }
+}
+
+
+
+
+
+model = keras.Sequential([
+    keras.layers.Flatten(input_shape=(28, 28)),
+    keras.layers.Dense(128, activation=tf.nn.relu), // 128 nodes / neurons
+    keras.layers.Dense(4, activation=tf.nn.softmax) // probability distrions (adding up to 1) over the 4 moves
+])
